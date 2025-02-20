@@ -1,30 +1,64 @@
-import axios from 'axios';
-
+// Reddit API services
 const BASE_URL = 'https://www.reddit.com';
-const axiosInstance = axios.create({
-  headers: {
-    'User-Agent': 'web:RedditFavorites:v1.0 (by /Honest_Advance6207)'
-  }
-});
 
-export const fetchSubredditPosts = async (subreddit) => {
+// Get hot posts from a subreddit
+export const getSubredditPosts = async (subreddit, limit = 10) => {
   try {
-    const response = await axiosInstance.get(
-      `${BASE_URL}/r/${subreddit}/hot.json?limit=10`
-    );
-    return response.data.data.children.map(child => child.data);
+    // Use the JSON API to get the hot posts
+    const response = await fetch(`${BASE_URL}/r/${subreddit}/hot.json?limit=${limit}`);
+    
+    if (!response.ok) {
+      throw new Error(`Error fetching subreddit: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    return data.data.children.map(post => post.data);
   } catch (error) {
-    console.error('Error fetching subreddit posts:', error);
+    console.error('Error fetching posts:', error);
     throw error;
   }
 };
 
-export const fetchPostById = async (postId) => {
+// Get details for a single post by ID
+export const getPostById = async (postId) => {
   try {
-    const response = await axiosInstance.get(`${BASE_URL}/by_id/t3_${postId}.json`);
-    return response.data.data.children[0].data;
+    // Remove t3_ prefix if present
+    const cleanId = postId.startsWith('t3_') ? postId.substring(3) : postId;
+    
+    const response = await fetch(`${BASE_URL}/by_id/t3_${cleanId}.json`);
+    
+    if (!response.ok) {
+      throw new Error(`Error fetching post: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    return data.data.children[0].data;
   } catch (error) {
-    console.error('Error fetching post by ID:', error);
+    console.error('Error fetching post details:', error);
+    throw error;
+  }
+};
+
+// Get details for multiple posts by their IDs
+export const getPostsByIds = async (postIds) => {
+  if (!postIds.length) return [];
+  
+  try {
+    // Format the IDs list for the API (comma-separated full IDs)
+    const formattedIds = postIds.map(id => {
+      return id.startsWith('t3_') ? id : `t3_${id}`;
+    }).join(',');
+    
+    const response = await fetch(`${BASE_URL}/by_id/${formattedIds}.json`);
+    
+    if (!response.ok) {
+      throw new Error(`Error fetching posts: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    return data.data.children.map(post => post.data);
+  } catch (error) {
+    console.error('Error fetching posts details:', error);
     throw error;
   }
 };
