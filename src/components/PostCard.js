@@ -7,7 +7,7 @@ const PostCard = ({ post, isFavorite, onToggleFavorite, showSubreddit = false })
   const hasImage = post.thumbnail && post.thumbnail.startsWith('http');
   const upvotePercentage = post.upvote_ratio ? Math.round(post.upvote_ratio * 100) : null;
 
-  // Format numbers with K/M suffix
+  // Format numbers with K/M 
   const formatNumber = (num) => {
     if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
     if (num >= 1000) return (num / 1000).toFixed(1) + 'K';

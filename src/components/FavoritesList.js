@@ -51,7 +51,7 @@ const FavoritesList = ({ favoritePostIds, onToggleFavorite, fetchPostsByIds }) =
     );
   }
 
-  // Show message if no favorites exist
+  // Show message if no favorites 
   if (favoritePosts.length === 0) {
     return (
       <ScrollAnimation animationClass="fade-in" className="favorites-list">

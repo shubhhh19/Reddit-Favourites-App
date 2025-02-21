@@ -35,7 +35,7 @@ const PostList = ({ posts, favoritePostIds, onToggleFavorite, loading, error, su
     );
   }
 
-  // If no posts exist at all, don't render anything
+  // If no posts exist, don't render anything
   if (posts.length === 0) {
     return null;
   }

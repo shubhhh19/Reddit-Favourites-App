@@ -61,7 +61,7 @@ const SubredditSearch = ({ onSearch, loading }) => {
           </div>
         </form>
         
-        {/* Popular subreddit suggestions */}
+        {/* Popular subreddit suggestion */}
         <div className="popular-subreddits">
           <h6>Popular Subreddits:</h6>
           <div className="subreddit-tags">

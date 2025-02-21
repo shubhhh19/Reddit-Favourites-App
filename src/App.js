@@ -24,13 +24,11 @@ function App() {
   const [activeTab, setActiveTab] = useState('search');
 
   const handleToggleFavorite = (postId) => {
-    setFavoritePostIds(prevFavorites => {
-      if (prevFavorites.includes(postId)) {
-        return prevFavorites.filter(id => id !== postId);
-      } else {
-        return [...prevFavorites, postId];
-      }
-    });
+    setFavoritePostIds(prevFavorites => 
+      prevFavorites.includes(postId) 
+        ? prevFavorites.filter(id => id !== postId) 
+        : [...prevFavorites, postId]
+    );
   };
 
   return (
@@ -40,6 +38,7 @@ function App() {
         <p>Search for subreddits and save your favorite posts</p>
       </header>
 
+      {/* Tabs for navigation */}
       <div className="nav nav-tabs mb-4">
         <button 
           className={`nav-link ${activeTab === 'search' ? 'active' : ''}`}
@@ -55,6 +54,7 @@ function App() {
         </button>
       </div>
 
+      {/* Conditional rendering for active tab */}
       {activeTab === 'search' ? (
         <div className="search-tab">
           <SubredditSearch onSearch={fetchSubredditPosts} loading={loading} />
