@@ -1,78 +1,72 @@
 # Reddit Favorites App
 
-A React application that allows users to search for Reddit posts by subreddit and save their favorite posts using the Web Storage API.
+A React application that allows users to search for posts in any subreddit and save their favorite posts locally using the Web Storage API.
 
 ## Features
 
-- Search for posts from any subreddit
-- View the top 10 "hot" posts from a subreddit
-- Save posts to your favorites list
-- View all your favorite posts across subreddits
-- Remove posts from your favorites list
-- Favorites are saved in your browser using localStorage
+- **Subreddit Search**: Enter any subreddit name to fetch and display its top 10 "hot" posts
+- **Post Details**: View each post's score, title, and link to the comments page
+- **Favorites Management**: Add posts to your favorites list with a single click
+- **Cross-Subreddit Favorites**: View all your favorite posts from different subreddits in one place
+- **Local Storage Persistence**: Your favorite posts are saved in your browser and persist between sessions
+- **Responsive Design**: Fully responsive UI that works on mobile and desktop devices
+- **Popular Subreddits**: Quick access to popular subreddits with one-click search
 
-## Installation
+## Installation and Run Instructions
 
-1. Clone the repository:
-```
-git clone https://github.com/your-github-username/reddit-favorites.git
-cd reddit-favorites
-```
+### Prerequisites
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
 
-2. Install dependencies:
-```
-npm install
-```
+### Dependencies
+- React (v18.2.0)
+- Bootstrap (v5.2.3)
+- Bootstrap Icons (v1.10.3)
 
-3. Start the development server:
-```
-npm start
-```
+### Installation Steps
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the Repository
+2. Install the dependencies: `npm install`
+3. Start the development server: `npm start`
+4. Open your browser and go to `http://localhost:3000`
 
-## Deployment Instructions
 
-### GitHub Pages
 
-1. Update the `homepage` field in `package.json` to point to your GitHub Pages URL:
-```json
-"homepage": "https://your-github-username.github.io/reddit-favorites"
-```
+## Interesting Parts during the Build Process
 
-2. Install the `gh-pages` package as a dev dependency:
-```
-npm install --save-dev gh-pages
-```
+### Reddit API Integration
+The app interacts with Reddit's JSON API directly without requiring authentication for public content. This was implemented by creating a service layer (redditApi.js) that handles all API requests, making the rest of the app more maintainable.
 
-3. Add deployment scripts to `package.json`:
-```json
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
-  ...
-}
-```
+### Local Storage Implementation
+One of the key requirements was to store only post IDs in localStorage rather than the entire post data. This was achieved through a custom hook (useLocalStorage.js) that manages saving and retrieving data from the browser's localStorage.
 
-4. Deploy to GitHub Pages:
-```
-npm run deploy
-```
+### Component Reusability
+The PostCard component is used in both the subreddit search results and the favorites list. It adapts to different contexts by accepting props like showSubreddit to display the subreddit name when viewing favorites from multiple subreddits.
 
-### Netlify
 
-1. Create a `netlify.toml` file in the project root:
-```toml
-[build]
-  command = "npm run build"
-  publish = "build"
-```
+## Difficulties Faced and Solutions
 
-2. Deploy to Netlify using their CLI or connect the repo on their website.
+### Challenge: Reddit API Rate Limiting
 
-## Technologies Used
+**Problem**: The Reddit API has rate limits that can cause request failures when making too many requests.
 
-- React
-- Web Storage API
-- Reddit JSON API
-- Bootstrap CSS Framework
+**Solution**: Implemented proper error handling and user feedback for API failures. Added loading states to prevent users from making multiple requests simultaneously.
+
+### Challenge: Preserving State Between Sessions
+
+**Problem**: Ensuring favorite posts persist between browser sessions without a backend.
+
+**Solution**: Used the Web Storage API (localStorage) to save post IDs, then re-fetched post data from the Reddit API when needed. This approach ensured we only stored the minimum necessary data (IDs) while still providing the full post information.
+
+### Challenge: Managing Component Dependencies
+
+**Problem**: Creating clean component hierarchies with proper data flow.
+
+**Solution**: Utilized custom hooks to separate data fetching and state management logic from UI components. This made the components more focused on rendering and improved maintainability.
+
+### Challenge: UI Responsiveness with Dynamic Content
+
+**Problem**: Creating a responsive UI that handles varying content lengths from Reddit posts.
+
+**Solution**: Implemented flexible layouts with Bootstrap that adapt to different screen sizes and content lengths. Used CSS to ensure consistent appearance regardless of post title length or content.
+
