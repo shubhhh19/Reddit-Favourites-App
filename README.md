@@ -1,74 +1,78 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Reddit Favorites App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that allows users to search for Reddit posts by subreddit and save their favorite posts using the Web Storage API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search for posts from any subreddit
+- View the top 10 "hot" posts from a subreddit
+- Save posts to your favorites list
+- View all your favorite posts across subreddits
+- Remove posts from your favorites list
+- Favorites are saved in your browser using localStorage
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+```
+git clone https://github.com/your-github-username/reddit-favorites.git
+cd reddit-favorites
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install dependencies:
+```
+npm install
+```
 
-### `npm test`
+3. Start the development server:
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm run build`
+## Deployment Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### GitHub Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Update the `homepage` field in `package.json` to point to your GitHub Pages URL:
+```json
+"homepage": "https://your-github-username.github.io/reddit-favorites"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the `gh-pages` package as a dev dependency:
+```
+npm install --save-dev gh-pages
+```
 
-### `npm run eject`
+3. Add deployment scripts to `package.json`:
+```json
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  ...
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Deploy to GitHub Pages:
+```
+npm run deploy
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Netlify
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Create a `netlify.toml` file in the project root:
+```toml
+[build]
+  command = "npm run build"
+  publish = "build"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Deploy to Netlify using their CLI or connect the repo on their website.
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/vWEWBdVa)
->>>>>>> 76a080cc0f176f7bcb0dcff5e122b12bdb29a289
+- React
+- Web Storage API
+- Reddit JSON API
+- Bootstrap CSS Framework

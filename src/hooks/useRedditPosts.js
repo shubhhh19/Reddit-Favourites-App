@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getSubredditPosts, getPostsByIds } from '../services/redditApi';
 
-// Custom hook for fetching and managing Reddit posts
 function useRedditPosts() {
   const [subredditPosts, setSubredditPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentSubreddit, setCurrentSubreddit] = useState('');
 
-  // Fetch posts from a specified subreddit
+  // Get posts from a subreddit
   const fetchSubredditPosts = async (subreddit) => {
     if (!subreddit.trim()) return;
     
@@ -27,7 +26,7 @@ function useRedditPosts() {
     }
   };
 
-  // Fetch multiple posts by their IDs
+  // Get posts by IDs
   const fetchPostsByIds = async (postIds) => {
     if (!postIds.length) return [];
     

@@ -1,0 +1,113 @@
+/* Animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes gradientBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Scroll reveal animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .slide-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Staggered animation delays for lists */
+  .post-card:nth-child(1) { animation-delay: 0.1s; }
+  .post-card:nth-child(2) { animation-delay: 0.2s; }
+  .post-card:nth-child(3) { animation-delay: 0.3s; }
+  .post-card:nth-child(4) { animation-delay: 0.4s; }
+  .post-card:nth-child(5) { animation-delay: 0.5s; }
+  .post-card:nth-child(6) { animation-delay: 0.6s; }
+  .post-card:nth-child(7) { animation-delay: 0.7s; }
+  .post-card:nth-child(8) { animation-delay: 0.8s; }
+  .post-card:nth-child(9) { animation-delay: 0.9s; }
+  .post-card:nth-child(10) { animation-delay: 1s; }
+  
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  /* Animated background */
+  .animated-bg {
+    background: linear-gradient(270deg, #ff8177, #ff867a, #ff8c7f, #f99185, #cf556c, #b12a5b);
+    background-size: 400% 400%;
+    animation: gradientBg 15s ease infinite;
+  }
+  
+  /* Loading animation */
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ff8177;
+    animation: spin 1s ease-in-out infinite;
+    margin: 30px auto;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ff8177;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cf556c;
+  }

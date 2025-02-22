@@ -1,10 +1,7 @@
-// Reddit API services
 const BASE_URL = 'https://www.reddit.com';
 
-// Get hot posts from a subreddit
 export const getSubredditPosts = async (subreddit, limit = 10) => {
   try {
-    // Use the JSON API to get the hot posts
     const response = await fetch(`${BASE_URL}/r/${subreddit}/hot.json?limit=${limit}`);
     
     if (!response.ok) {
@@ -19,11 +16,9 @@ export const getSubredditPosts = async (subreddit, limit = 10) => {
   }
 };
 
-// Get details for a single post by ID
 export const getPostById = async (postId) => {
   try {
-    // Remove t3_ prefix if present
-    const cleanId = postId.startsWith('t3_') ? postId.substring(3) : postId;
+    const cleanId = postId.startsWith('t3_') ? postId.substring(3) : postId; // Remove t3_ if needed
     
     const response = await fetch(`${BASE_URL}/by_id/t3_${cleanId}.json`);
     
@@ -39,15 +34,11 @@ export const getPostById = async (postId) => {
   }
 };
 
-// Get details for multiple posts by their IDs
 export const getPostsByIds = async (postIds) => {
   if (!postIds.length) return [];
   
   try {
-    // Format the IDs list for the API (comma-separated full IDs)
-    const formattedIds = postIds.map(id => {
-      return id.startsWith('t3_') ? id : `t3_${id}`;
-    }).join(',');
+    const formattedIds = postIds.map(id => id.startsWith('t3_') ? id : `t3_${id}`).join(','); // Format IDs
     
     const response = await fetch(`${BASE_URL}/by_id/${formattedIds}.json`);
     

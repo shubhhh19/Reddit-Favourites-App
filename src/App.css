@@ -1,7 +1,5 @@
-/* Import animations */
-@import './animations.css';
+@import './animations.css'; 
 
-/* Main App Styles */
 body {
   background-color: #121212;
   color: #f1f1f1;
@@ -16,7 +14,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header Styles */
 header {
   padding: 2rem 0;
   text-align: center;
@@ -36,13 +33,12 @@ header h1 {
 
 header p {
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 0;
   margin-top: 1rem;
   animation: fadeIn 0.8s ease-out 0.2s forwards;
-  opacity: 0;
 }
 
-/* Navigation Tabs */
+/* Navigation */
 .nav-tabs {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 2.5rem;
@@ -83,7 +79,7 @@ header p {
   border-radius: 3px 3px 0 0;
 }
 
-/* Search Form */
+/* Search Bar */
 .subreddit-search {
   margin-bottom: 3rem;
   animation: fadeIn 0.6s ease-out forwards;
@@ -147,7 +143,7 @@ header p {
   cursor: not-allowed;
 }
 
-/* Post List */
+/* Posts */
 .post-list, .favorites-list {
   margin-top: 2rem;
 }
@@ -160,7 +156,7 @@ header p {
   color: white;
 }
 
-/* Post Card Styles */
+/* Post Card */
 .post-card {
   background-color: #1e1e1e;
   border-radius: 12px;
@@ -200,6 +196,7 @@ header p {
   color: #ff8177;
 }
 
+/* Post details */
 .post-details {
   margin-top: 1rem;
   display: flex;
@@ -232,14 +229,7 @@ header p {
   color: #ff8177;
 }
 
-.post-card small {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
-  margin-bottom: 0.7rem;
-  display: block;
-}
-
-/* Favorite/Remove Button */
+/* Buttons */
 .post-card button {
   padding: 0.7rem 1.2rem;
   font-size: 0.9rem;
@@ -269,7 +259,7 @@ header p {
   background: linear-gradient(90deg, #a3245a 0%, #e67770 100%);
 }
 
-/* Loading State */
+/* Loading */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -278,7 +268,7 @@ header p {
   min-height: 200px;
 }
 
-/* Alert Messages */
+/* Alerts */
 .alert {
   border-radius: 10px;
   padding: 1.2rem;
@@ -286,59 +276,19 @@ header p {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-.alert-danger {
-  background-color: rgba(220, 53, 69, 0.1);
-  border-left: 4px solid #dc3545;
-  color: #ff6b6b;
-}
-
-.alert-info {
-  background-color: rgba(13, 202, 240, 0.1);
-  border-left: 4px solid #0dcaf0;
-  color: #8ee0f0;
-}
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 3rem 1rem;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  margin: 2rem 0;
-}
-
-.empty-state h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: white;
-}
-
-.empty-state p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1.5rem;
-}
-
-/* Media Queries */
+/* Responsive */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2.2rem;
   }
-  
+
   .nav-link {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
   }
-  
-  .input-group input {
-    padding: 1rem;
-  }
-  
-  .input-group button {
-    padding: 0 1.5rem;
-  }
 }
 
-/* Dark mode tweaks */
+/* Dark Mode */
 .dark-mode .post-card {
   background-color: #1a1a1a;
 }
