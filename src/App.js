@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
+import './index.css';
 
 import SubredditSearch from './components/SubredditSearch';
 import PostList from './components/PostList';
