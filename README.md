@@ -1,6 +1,7 @@
 # Reddit Favorites App
 
 A React application that allows users to search for posts in any subreddit and save their favorite posts locally using the Web Storage API.
+Check the website out here: https://reddit-favorites-app.netlify.app/
 
 ## Features
 
