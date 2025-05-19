@@ -71,3 +71,10 @@ The PostCard component is used in both the subreddit search results and the favo
 
 **Solution**: Implemented flexible layouts with Bootstrap that adapt to different screen sizes and content lengths. Used CSS to ensure consistent appearance regardless of post title length or content.
 
+
+## Screenshots
+<div align="center">
+<img src="https://github.com/user-attachments/assets/0d9cc4be-24fb-4761-af0d-2e3db4f1e1a3" alt="Home Page" width="1000"/>
+
+  
+<img src="https://github.com/user-attachments/assets/7542373b-3574-4925-a740-e64884aaa60b" alt="Home Page" width="1000"/>
